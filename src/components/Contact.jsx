@@ -38,18 +38,18 @@ const Contact = () => {
 //CrsV28PTQd9HOjH-k
 
     emailjs
-      .send(
-        'service_dprfz04',
-        'template_qfu8l2d',
-        {
-          from_name: form.name,
-          to_name: "Riocodex",
-          from_email: form.email,
-          to_email: "Onwuka Rosario",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
+    .send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        to_name: "Riocodex",
+        from_email: form.email,
+        to_email: "Onwuka Rosario",
+        message: form.message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
       .then(
         () => {
           setLoading(false);
