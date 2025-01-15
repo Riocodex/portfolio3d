@@ -23,6 +23,8 @@ import {
   jobit,
   tripguide,
   threejs,
+  solidity,
+  rethestate
 } from "../assets";
 
 export const navLinks = [
@@ -111,8 +113,8 @@ const technologies = [
     icon: figma,
   },
   {
-    name: "docker",
-    icon: docker,
+    name: "solidity",
+    icon: solidity,
   },
 ];
 
@@ -120,7 +122,7 @@ const experiences = [
   {
     title: "Senior Web3 Developer",
     company_name: "Rethestate",
-    icon: starbucks,
+    icon: rethestate,
     iconBg: "#383E56",
     date: "August 2023 - December 2023",
     points: [
@@ -152,7 +154,7 @@ const experiences = [
       "I constructed websites and transitioned into an educator's role, instructing students in the fields of frontend development and web design at the school.",
     ],
   },
-
+  
 ];
 
 const testimonials = [
