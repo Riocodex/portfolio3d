@@ -24,7 +24,9 @@ import {
   tripguide,
   threejs,
   solidity,
-  rethestate
+  rethestate,
+  upwork,
+  aptech
 } from "../assets";
 
 export const navLinks = [
@@ -135,7 +137,7 @@ const experiences = [
   {
     title: "Frontend Developer",
     company_name: "Upwork",
-    icon: tesla,
+    icon: upwork,
     iconBg: "#E6DEDD",
     date: "March 2023 - May 2022",
     points: [
@@ -147,7 +149,7 @@ const experiences = [
   {
     title: "Web Developer",
     company_name: "Aptech",
-    icon: shopify,
+    icon: aptech,
     iconBg: "#383E56",
     date: "Jan 2022 - Feb 2023",
     points: [

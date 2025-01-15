@@ -27,6 +27,8 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import rethestate from "./company/rethestate.png"
+import upwork from "./company/upwork.png"
+import aptech from "./company/aptech.png"
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -62,5 +64,7 @@ export {
   carrent,
   jobit,
   tripguide,
-  rethestate
+  rethestate,
+  upwork,
+  aptech
 };
