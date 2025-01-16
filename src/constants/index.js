@@ -22,6 +22,8 @@ import {
   carrent,
   jobit,
   fashionswipe,
+  metaversus,
+  wemakeclothes,
   tripguide,
   threejs,
   solidity,
@@ -191,7 +193,7 @@ const projects = [
   {
     name: "Fashion Swipe",
     description:
-      "I built a responsive eCommerce website using the MERN stack (MongoDB, Express.js, React.js, and Node.js), featuring product browsing, detailed views, cart management, and secure checkout for a seamless shopping experience.",
+      "I built an eCommerce website using the MERN stack featuring product browsing, detailed views, cart management, and secure checkout for a seamless shopping experience.",
     tags: [
       {
         name: "react",
@@ -212,10 +214,10 @@ const projects = [
   {
     name: "Metaversus",
     description:
-      "I cloned a Figma design and recreated it using React, Tailwind CSS, and Framer Motion. The project features smooth animations, responsive design, and an aesthetically pleasing user interface.",
+      "I designed and developed a website that allows clients to create and customize clothing virtually. The platform provides an interactive and user-friendly interface, enabling users to experiment with designs, colors, and pictures in real time.",
     tags: [
       {
-        name: "react",
+        name: "Nextjs13",
         color: "blue-text-gradient",
       },
       {
@@ -227,29 +229,50 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: metaversus,
     source_code_link: "https://github.com/Riocodex/Metaversus/tree/main",
   },
   {
-    name: "Trip Guide",
+    name: "WeMakeClothes",
     description:
       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
     tags: [
       {
-        name: "nextjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "tailwind",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "threejs",
         color: "pink-text-gradient",
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Riocodex/threejjs",
+  },
+  {
+    name: "WeMakeClothes",
+    description:
+      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "green-text-gradient",
+      },
+      {
+        name: "threejs",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: tripguide,
+    source_code_link: "https://github.com/Riocodex/threejjs",
   },
 ];
 

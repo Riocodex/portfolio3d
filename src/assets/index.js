@@ -35,6 +35,7 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import fashionswipe from './fashionswipe.png'
 import metaversus from './metaversus.png'
+import wemakeclothes from './wemakeclothes.png'
 
 export {
   logo,
@@ -71,5 +72,6 @@ export {
   rethestate,
   upwork,
   aptech,
+  wemakeclothes,
   
 };
