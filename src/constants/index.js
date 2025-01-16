@@ -18,7 +18,7 @@ import {
   metaversus,
   wemakeclothes,
   rethestatew,
-  tripguide,
+  nick,
   threejs,
   solidity,
   rethestate,
@@ -159,23 +159,23 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
+      "I thought it was impossible to make a website as beautiful as our product, but Rio proved me wrong.",
+    name: "Nick Valladares",
     designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    company: "Rethestate",
+    image: nick,
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
+      "I've never met a web developer who truly cares about their clients' success like Rio does.",
+    name: "Ani Cletus",
+    designation: "General manager",
+    company: "Aptech",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+      "After Rio optimized our website, our traffic increased by 50%. We can't thank them enough!",
     name: "Lisa Wang",
     designation: "CTO",
     company: "456 Enterprises",
@@ -251,7 +251,7 @@ const projects = [
   {
     name: "Fashion Swipe",
     description:
-      "I built an eCommerce website using the MERN stack featuring product browsing, detailed views, cart management, and secure checkout for a seamless shopping experience.",
+      "I built an eCommerce website using the MERN stack featuring authentication, detailed views, cart management, and secure checkout for a seamless shopping experience.",
     tags: [
       {
         name: "react",

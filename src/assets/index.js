@@ -38,6 +38,8 @@ import metaversus from './metaversus.png'
 import wemakeclothes from './wemakeclothes.png'
 import rethestatew from './rethestate.png'
 
+import nick from './nick.png'
+
 export {
   logo,
   backend,
@@ -75,5 +77,6 @@ export {
   rethestate,
   upwork,
   aptech,
+  nick
   
 };
