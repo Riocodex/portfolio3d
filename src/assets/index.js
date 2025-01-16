@@ -38,7 +38,7 @@ import metaversus from './metaversus.png'
 import wemakeclothes from './wemakeclothes.png'
 import rethestatew from './rethestate.png'
 
-import nick from './nick.png'
+import nick from './Nick.png'
 
 export {
   logo,
