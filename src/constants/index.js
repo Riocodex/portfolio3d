@@ -248,27 +248,27 @@ const projects = [
     image: rethestatew,
     source_code_link: "https://github.com/Riocodex/RealNFT",
   },
-  {
-    name: "Fashion Swipe",
-    description:
-      "I built an eCommerce website using the MERN stack featuring authentication, detailed views, cart management, and secure checkout for a seamless shopping experience.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "node.js",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: fashionswipe,
-    source_code_link: "https://github.com/Riocodex/E-commerce",
-  },
+  // {
+  //   name: "Fashion Swipe",
+  //   description:
+  //     "I built an eCommerce website using the MERN stack featuring authentication, detailed views, cart management, and secure checkout for a seamless shopping experience.",
+  //   tags: [
+  //     {
+  //       name: "react",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "mongodb",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "node.js",
+  //       color: "pink-text-gradient",
+  //     },
+  //   ],
+  //   image: fashionswipe,
+  //   source_code_link: "https://github.com/Riocodex/E-commerce",
+  // },
 ];
 
 export { services, technologies, experiences, testimonials, projects };
