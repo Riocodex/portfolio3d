@@ -36,6 +36,7 @@ import tripguide from "./tripguide.png";
 import fashionswipe from './fashionswipe.png'
 import metaversus from './metaversus.png'
 import wemakeclothes from './wemakeclothes.png'
+import rethestate from './rethestate.png'
 
 export {
   logo,
@@ -66,12 +67,13 @@ export {
   tesla,
   carrent,
   fashionswipe,
+  wemakeclothes,
   metaversus,
+  rethestate,
   jobit,
   tripguide,
   rethestate,
   upwork,
   aptech,
-  wemakeclothes,
   
 };

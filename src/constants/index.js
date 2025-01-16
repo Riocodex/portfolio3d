@@ -14,16 +14,10 @@ import {
   mongodb,
   git,
   figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
   fashionswipe,
   metaversus,
   wemakeclothes,
+  rethestate,
   tripguide,
   threejs,
   solidity,
@@ -235,7 +229,7 @@ const projects = [
   {
     name: "WeMakeClothes",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "I designed and developed an innovative website that empowers clients to design clothing virtually. The platform offers a highly interactive and user-friendly interface, allowing users to explore their creativity by customizing garments with a wide range of design options. ",
     tags: [
       {
         name: "react",
@@ -250,11 +244,11 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: wemakeclothes,
     source_code_link: "https://github.com/Riocodex/threejjs",
   },
   {
-    name: "WeMakeClothes",
+    name: "Rethestate",
     description:
       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
     tags: [
