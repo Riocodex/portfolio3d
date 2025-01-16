@@ -36,7 +36,7 @@ import tripguide from "./tripguide.png";
 import fashionswipe from './fashionswipe.png'
 import metaversus from './metaversus.png'
 import wemakeclothes from './wemakeclothes.png'
-import rethestate from './rethestate.png'
+import rethestatew from './rethestate.png'
 
 export {
   logo,
@@ -69,7 +69,7 @@ export {
   fashionswipe,
   wemakeclothes,
   metaversus,
-  rethestate,
+  rethestatew,
   jobit,
   tripguide,
   rethestate,

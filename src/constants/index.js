@@ -17,7 +17,7 @@ import {
   fashionswipe,
   metaversus,
   wemakeclothes,
-  rethestate,
+  rethestatew,
   tripguide,
   threejs,
   solidity,
@@ -184,27 +184,7 @@ const testimonials = [
 ];
 
 const projects = [
-  {
-    name: "Fashion Swipe",
-    description:
-      "I built an eCommerce website using the MERN stack featuring product browsing, detailed views, cart management, and secure checkout for a seamless shopping experience.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "node.js",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: fashionswipe,
-    source_code_link: "https://github.com/Riocodex/E-commerce",
-  },
+  
   {
     name: "Metaversus",
     description:
@@ -250,23 +230,44 @@ const projects = [
   {
     name: "Rethestate",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A digital platform that functions as a marketplace for buying and selling houses, with the unique feature of using Non-Fungible Tokens (NFTs) to represent each individual property.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "solidity",
         color: "green-text-gradient",
       },
       {
-        name: "threejs",
+        name: "web3js",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: rethestatew,
     source_code_link: "https://github.com/Riocodex/threejjs",
+  },
+  {
+    name: "Fashion Swipe",
+    description:
+      "I built an eCommerce website using the MERN stack featuring product browsing, detailed views, cart management, and secure checkout for a seamless shopping experience.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "green-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: fashionswipe,
+    source_code_link: "https://github.com/Riocodex/E-commerce",
   },
 ];
 
