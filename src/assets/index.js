@@ -33,6 +33,8 @@ import aptech from "./company/aptech.png"
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import fashionswipe from './fashionswipe.png'
+import metaversus from './metaversus.png'
 
 export {
   logo,
@@ -62,9 +64,12 @@ export {
   starbucks,
   tesla,
   carrent,
+  fashionswipe,
+  metaversus,
   jobit,
   tripguide,
   rethestate,
   upwork,
-  aptech
+  aptech,
+  
 };

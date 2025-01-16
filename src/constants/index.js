@@ -21,6 +21,7 @@ import {
   shopify,
   carrent,
   jobit,
+  fashionswipe,
   tripguide,
   threejs,
   solidity,
@@ -188,9 +189,9 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Fashion Swipe",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "I built a responsive eCommerce website using the MERN stack (MongoDB, Express.js, React.js, and Node.js), featuring product browsing, detailed views, cart management, and secure checkout for a seamless shopping experience.",
     tags: [
       {
         name: "react",
@@ -201,33 +202,33 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "node.js",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: fashionswipe,
+    source_code_link: "https://github.com/Riocodex/E-commerce",
   },
   {
-    name: "Job IT",
+    name: "Metaversus",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "I cloned a Figma design and recreated it using React, Tailwind CSS, and Framer Motion. The project features smooth animations, responsive design, and an aesthetically pleasing user interface.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "tailwind",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "framermotion",
         color: "pink-text-gradient",
       },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Riocodex/Metaversus/tree/main",
   },
   {
     name: "Trip Guide",
