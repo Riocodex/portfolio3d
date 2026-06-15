@@ -7,67 +7,59 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
-
-
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    reply_to: "",
     message: "",
   });
-
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      alert(
+        "Contact form is not configured yet. Add your EmailJS keys to the .env file."
+      );
+      return;
+    }
+
     setLoading(true);
 
-    //template_qfu8l2d
-//service_dprfz04
-//CrsV28PTQd9HOjH-k
-
-    emailjs
-    .send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: form.name,
-        to_name: "Riocodex",
-        from_email: form.email,
-        to_email: "Onwuka Rosario",
-        message: form.message,
-      },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: form.from_name,
+          reply_to: form.reply_to,
+          from_email: form.reply_to,
+          user_email: form.reply_to,
+          message: form.message,
         },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
+        publicKey
       );
+
+      alert("Thank you. I will get back to you as soon as possible.");
+      setForm({ from_name: "", reply_to: "", message: "" });
+      formRef.current?.reset();
+    } catch (error) {
+      console.error("Contact form error:", error);
+      alert("Something went wrong. Please try again or email me directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -83,6 +75,7 @@ const Contact = () => {
 
         <form
           ref={formRef}
+          id='contact-form'
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
         >
@@ -90,9 +83,10 @@ const Contact = () => {
             <span className='text-white font-medium mb-4'>Your Name</span>
             <input
               type='text'
-              name='name'
-              value={form.name}
+              name='from_name'
+              value={form.from_name}
               onChange={handleChange}
+              required
               placeholder="What's your good name?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
@@ -101,10 +95,11 @@ const Contact = () => {
             <span className='text-white font-medium mb-4'>Your email</span>
             <input
               type='email'
-              name='email'
-              value={form.email}
+              name='reply_to'
+              value={form.reply_to}
               onChange={handleChange}
-              placeholder="What's your web address?"
+              required
+              placeholder="What's your email address?"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -115,6 +110,7 @@ const Contact = () => {
               name='message'
               value={form.message}
               onChange={handleChange}
+              required
               placeholder='What you want to say?'
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
@@ -122,7 +118,8 @@ const Contact = () => {
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            disabled={loading}
+            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary disabled:opacity-50'
           >
             {loading ? "Sending..." : "Send"}
           </button>
