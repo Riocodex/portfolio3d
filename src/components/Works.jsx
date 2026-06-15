@@ -10,6 +10,12 @@ import { useProjects } from "../hooks/useProjects";
 import { useAuth } from "../context/AuthContext";
 import { fadeIn, textVariant } from "../utils/motion";
 
+const normalizeUrl = (url) => {
+  if (!url?.trim()) return "";
+  const trimmed = url.trim();
+  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+};
+
 const ProjectCard = ({
   index,
   name,
@@ -19,60 +25,76 @@ const ProjectCard = ({
   source_code_link,
   website_link,
 }) => {
-  const projectLink = website_link || source_code_link;
+  const projectLink = normalizeUrl(website_link) || normalizeUrl(source_code_link);
+  const githubLink = normalizeUrl(source_code_link);
 
-  const handleCardClick = () => {
+  const openProject = () => {
     if (projectLink) {
       window.open(projectLink, "_blank", "noopener,noreferrer");
     }
   };
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} className='h-full'>
+      <div
+        className={`h-full ${projectLink ? "cursor-pointer" : ""}`}
+        onClick={openProject}
+        onKeyDown={(e) => {
+          if (projectLink && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            openProject();
+          }
         }}
-        className={`bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full ${
-          projectLink ? "cursor-pointer" : ""
-        }`}
-        onClick={handleCardClick}
+        role={projectLink ? "link" : undefined}
+        tabIndex={projectLink ? 0 : undefined}
       >
-        <div className='relative w-full h-[230px]'>
-          <img
-            src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
-          />
+        <Tilt
+          options={{
+            max: 45,
+            scale: 1,
+            speed: 450,
+          }}
+          className='bg-tertiary p-5 rounded-2xl w-full h-full min-h-[480px] flex flex-col'
+        >
+          <div className='relative w-full h-[230px] flex-shrink-0'>
+            <img
+              src={image}
+              alt='project_image'
+              className='w-full h-full object-cover rounded-2xl'
+            />
 
-          {source_code_link && (
-            <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(source_code_link, "_blank", "noopener,noreferrer");
-                }}
-                className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-              >
-                <img
-                  src={github}
-                  alt='source code'
-                  className='w-1/2 h-1/2 object-contain'
-                />
+            {githubLink && (
+              <div className='absolute inset-0 flex justify-end m-3 card-img_hover pointer-events-none'>
+                <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(githubLink, "_blank", "noopener,noreferrer");
+                  }}
+                  onKeyDown={(e) => e.stopPropagation()}
+                  role='button'
+                  tabIndex={0}
+                  className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer pointer-events-auto'
+                >
+                  <img
+                    src={github}
+                    alt='source code'
+                    className='w-1/2 h-1/2 object-contain'
+                  />
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
 
-        <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
-        </div>
+          <div className='mt-5 flex flex-col flex-1'>
+            <h3 className='text-white font-bold text-[24px] leading-[32px] h-[64px] overflow-hidden'>
+              {name}
+            </h3>
+            <p className='mt-2 text-secondary text-[14px] leading-[22px] h-[88px] overflow-hidden'>
+              {description}
+            </p>
+          </div>
 
-        {tags.length > 0 && (
-          <div className='mt-4 flex flex-wrap gap-2'>
+          <div className='mt-4 flex flex-wrap gap-2 min-h-[28px]'>
             {tags.map((tag) => (
               <p
                 key={`${name}-${tag.name}`}
@@ -82,8 +104,8 @@ const ProjectCard = ({
               </p>
             ))}
           </div>
-        )}
-      </Tilt>
+        </Tilt>
+      </div>
     </motion.div>
   );
 };
@@ -148,7 +170,7 @@ const Works = () => {
       )}
 
       {!loading && !error && projects.length > 0 && (
-        <div className='mt-20 flex flex-wrap gap-7'>
+        <div className='mt-20 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7'>
           {projects.map((project, index) => (
             <ProjectCard key={project.id ?? `project-${index}`} index={index} {...project} />
           ))}
