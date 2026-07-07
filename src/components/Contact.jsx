@@ -56,7 +56,15 @@ const Contact = () => {
       formRef.current?.reset();
     } catch (error) {
       console.error("Contact form error:", error);
-      alert("Something went wrong. Please try again or email me directly.");
+      const errorText = error?.text || "";
+
+      if (errorText.includes("Invalid grant") || errorText.includes("insufficient authentication")) {
+        alert(
+          "Email service needs to be reconnected. In EmailJS → Email Services, disconnect and reconnect your Gmail account, then try again."
+        );
+      } else {
+        alert("Something went wrong. Please try again or email me directly at onwukachibike@gmail.com");
+      }
     } finally {
       setLoading(false);
     }
