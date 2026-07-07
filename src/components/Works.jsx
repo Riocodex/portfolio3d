@@ -27,6 +27,7 @@ const ProjectCard = ({
 }) => {
   const projectLink = normalizeUrl(website_link) || normalizeUrl(source_code_link);
   const githubLink = normalizeUrl(source_code_link);
+  const safeTags = Array.isArray(tags) ? tags : [];
 
   const openProject = () => {
     if (projectLink) {
@@ -35,9 +36,13 @@ const ProjectCard = ({
   };
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} className='h-full'>
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      initial='hidden'
+      animate='show'
+    >
       <div
-        className={`h-full ${projectLink ? "cursor-pointer" : ""}`}
+        className={projectLink ? "cursor-pointer" : ""}
         onClick={openProject}
         onKeyDown={(e) => {
           if (projectLink && (e.key === "Enter" || e.key === " ")) {
@@ -54,7 +59,7 @@ const ProjectCard = ({
             scale: 1,
             speed: 450,
           }}
-          className='bg-tertiary p-5 rounded-2xl w-full h-full flex flex-col'
+          className='bg-tertiary p-5 rounded-2xl w-full flex flex-col'
         >
           <div className='relative w-full h-[230px] flex-shrink-0'>
             <img
@@ -94,14 +99,14 @@ const ProjectCard = ({
             </p>
           </div>
 
-          {tags.length > 0 && (
+          {safeTags.length > 0 && (
             <div className='mt-4 flex flex-wrap gap-2'>
-            {tags.map((tag) => (
+            {safeTags.map((tag) => (
               <p
-                key={`${name}-${tag.name}`}
-                className={`text-[14px] ${tag.color}`}
+                key={`${name}-${tag?.name ?? tag}`}
+                className={`text-[14px] ${tag?.color ?? ""}`}
               >
-                #{tag.name}
+                #{tag?.name ?? tag}
               </p>
             ))}
             </div>
