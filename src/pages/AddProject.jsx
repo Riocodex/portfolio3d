@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import Navbar from "../components/Navbar";
+import AdminBar from "../components/site/AdminBar";
 import { styles } from "../styles";
 import { useProjects } from "../hooks/useProjects";
 import { slideIn } from "../utils/motion";
@@ -79,9 +79,9 @@ const AddProject = () => {
 
   return (
     <div className='relative z-0 bg-primary min-h-screen'>
-      <Navbar />
+      <AdminBar />
 
-      <div className={`${styles.padding} max-w-3xl mx-auto pt-28 pb-16`}>
+      <div className={`${styles.padding} max-w-3xl mx-auto pt-6 pb-16`}>
         <motion.div
           variants={slideIn("up", "tween", 0.2, 1)}
           initial='hidden'

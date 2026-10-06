@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { motion } from "framer-motion";
 
-import Navbar from "../components/Navbar";
+import AdminBar from "../components/site/AdminBar";
 import { auth } from "../firebase/config";
 import { styles } from "../styles";
 import { slideIn } from "../utils/motion";
@@ -33,9 +33,9 @@ const AdminLogin = () => {
 
   return (
     <div className='relative z-0 bg-primary min-h-screen'>
-      <Navbar />
+      <AdminBar />
 
-      <div className={`${styles.padding} max-w-md mx-auto pt-28 pb-16`}>
+      <div className={`${styles.padding} max-w-md mx-auto pt-6 pb-16`}>
         <motion.div
           variants={slideIn("up", "tween", 0.2, 1)}
           initial='hidden'
