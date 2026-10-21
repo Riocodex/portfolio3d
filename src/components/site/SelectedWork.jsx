@@ -83,38 +83,71 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-const ManualProjectCard = ({ project }) => (
-  <article className='border-t border-line pt-8'>
-    <div className='overflow-hidden bg-black'>
-      <img
-        src={project.image}
-        alt={project.name}
-        className='aspect-[16/10] w-full bg-black object-contain'
-      />
-    </div>
+const ManualProjectCard = ({ project }) => {
+  const website = project.website?.trim() || "";
 
-    <div className='mt-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>
-      <div className='max-w-2xl'>
-        <p className='text-[0.75rem] font-medium uppercase tracking-[0.14em] text-mist'>{project.category}</p>
-        <h3 className='mt-3 font-display text-2xl font-medium tracking-[-0.02em] text-ink sm:text-3xl'>{project.name}</h3>
-        {project.summary && <p className='mt-3 text-[1.02rem] leading-7 text-ink'>{project.summary}</p>}
-        <p className='mt-3 text-[0.98rem] leading-7 text-mist'>{project.description}</p>
-        {project.points?.length > 0 && (
-          <ul className='mt-4 space-y-1.5 text-[0.98rem] leading-7 text-mist'>
-            {project.points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+  const image = (
+    <img
+      src={project.image}
+      alt={website ? `${project.name} landing page` : project.name}
+      className={
+        website
+          ? "aspect-[16/10] w-full object-cover transition duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          : "aspect-[16/10] w-full bg-black object-contain"
+      }
+    />
+  );
+
+  return (
+    <article className='group border-t border-line pt-8'>
+      <div className={website ? "overflow-hidden bg-[#ebe6de]" : "overflow-hidden bg-black"}>
+        {website ? (
+          <a href={website} target='_blank' rel='noreferrer' className='block' aria-label={`${project.name} website`}>
+            {image}
+          </a>
+        ) : (
+          image
         )}
-        {project.note && <p className='mt-4 text-[0.98rem] leading-7 text-mist'>{project.note}</p>}
       </div>
-      <p className='shrink-0 text-[0.95rem] text-ink'>
-        {project.status}
-        <span className='mt-1 block text-[0.85rem] text-mist'>{project.statusDetail}</span>
-      </p>
-    </div>
-  </article>
-);
+
+      <div className='mt-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>
+        <div className='max-w-2xl'>
+          <p className='text-[0.75rem] font-medium uppercase tracking-[0.14em] text-mist'>{project.category}</p>
+          <h3 className='mt-3 font-display text-2xl font-medium tracking-[-0.02em] text-ink sm:text-3xl'>{project.name}</h3>
+          {project.summary && <p className='mt-3 text-[1.02rem] leading-7 text-ink'>{project.summary}</p>}
+          <p className='mt-3 text-[0.98rem] leading-7 text-mist'>{project.description}</p>
+          {project.points?.length > 0 && (
+            <ul className='mt-4 space-y-1.5 text-[0.98rem] leading-7 text-mist'>
+              {project.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          )}
+          {project.note && <p className='mt-4 text-[0.98rem] leading-7 text-mist'>{project.note}</p>}
+        </div>
+        {website ? (
+          <a
+            href={website}
+            target='_blank'
+            rel='noreferrer'
+            className='shrink-0 text-[0.95rem] text-ink underline decoration-line underline-offset-4 hover:decoration-ink'
+          >
+            View project
+          </a>
+        ) : (
+          project.status && (
+            <p className='shrink-0 text-[0.95rem] text-ink'>
+              {project.status}
+              {project.statusDetail && (
+                <span className='mt-1 block text-[0.85rem] text-mist'>{project.statusDetail}</span>
+              )}
+            </p>
+          )
+        )}
+      </div>
+    </article>
+  );
+};
 
 const SelectedWork = () => {
   const { projects, loading, error } = useProjects();

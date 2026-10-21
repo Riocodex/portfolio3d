@@ -43,7 +43,7 @@ export const trackRecord = [
     description:
       "8WTC is a fitness transformation business built around structured training, nutrition and accountability programmes.",
     involvement:
-      "I work with the business on technology-supported customer acquisition and prospecting, using software I built to identify and reach potential customers. Outrich, my AI-assisted prospecting system, supports business discovery, qualification and outreach.",
+      "I work with the business on technology-supported customer acquisition and prospecting, using software I built to identify and reach potential customers. Herifind, my prospecting service, supports business discovery, qualification and outreach.",
     url: "",
   },
   {
@@ -76,16 +76,15 @@ export const trackRecord = [
   },
 ];
 
-export const outrich = {
-  name: "Outrich",
+export const herifind = {
+  name: "Herifind",
   category: "AI · Business Prospecting",
-  status: "Private product",
-  statusDetail: "Active development",
   summary: "Putting businesses in front of the customers most likely to need them.",
   description:
     "An AI-powered prospecting system that helps businesses find and reach potential customers. It discovers relevant companies, analyses their online presence, prioritises opportunities and generates personalised outreach.",
   note: "Currently used in commercial prospecting work with 8WTC.",
-  image: "/projects/outrich.png",
+  image: "/projects/herifind.png",
+  website: "https://www.herifind.com/",
   points: [
     "Business discovery and website analysis",
     "Opportunity identification and lead prioritisation",
@@ -105,7 +104,7 @@ export const antares = {
   points: [],
 };
 
-export const manualProjects = [outrich, antares];
+export const manualProjects = [herifind, antares];
 
 export const processSteps = [
   {
