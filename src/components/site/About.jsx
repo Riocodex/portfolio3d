@@ -5,7 +5,7 @@ const About = () => (
         About
       </h2>
       <div className='max-w-xl space-y-5 text-[1.05rem] leading-8 text-mist md:col-span-7 md:col-start-6'>
-        <p>I&apos;m Rosario Onwuka, a Computer Science graduate based in Malta.</p>
+        <p>I&apos;m Riocodex, a Computer Science graduate based in Malta.</p>
         <p>
           I came up through frontend and full-stack work, including time on a production engineering team, and I still take products from an idea through to something that ships.
         </p>

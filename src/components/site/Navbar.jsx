@@ -27,7 +27,7 @@ const Navbar = () => {
     <header className='fixed inset-x-0 top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md'>
       <nav className='mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8' aria-label='Primary'>
         <a href='#top' className='font-display text-[1.35rem] leading-none text-ink' onClick={close}>
-          Rosario.
+          Riocodex
         </a>
 
         <ul className='hidden items-center gap-8 md:flex'>
@@ -42,12 +42,19 @@ const Navbar = () => {
 
         <button
           type='button'
-          className='text-[0.95rem] text-ink md:hidden'
+          className='inline-flex h-11 w-11 items-center justify-center text-ink md:hidden'
           aria-expanded={open}
           aria-controls='site-menu'
+          aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? "Close" : "Menu"}
+          <svg width='22' height='22' viewBox='0 0 22 22' fill='none' aria-hidden='true'>
+            {open ? (
+              <path d='M5 5l12 12M17 5L5 17' stroke='currentColor' strokeWidth='1.6' strokeLinecap='round' />
+            ) : (
+              <path d='M3 6h16M3 11h16M3 16h16' stroke='currentColor' strokeWidth='1.6' strokeLinecap='round' />
+            )}
+          </svg>
         </button>
       </nav>
 
