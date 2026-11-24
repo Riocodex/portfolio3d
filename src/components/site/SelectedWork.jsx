@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../../context/AuthContext";
-import { manualProjects } from "../../content/profile";
+import { manualProjects, projectBriefs } from "../../content/profile";
 import { useProjects } from "../../hooks/useProjects";
 
 const normalizeUrl = (url) => {
@@ -18,17 +18,14 @@ const tagName = (tag) => {
 
 const ProjectCard = ({ project }) => {
   const website = normalizeUrl(project.website_link);
-  const code = normalizeUrl(project.source_code_link);
-  const href = website || code;
-  const action = website ? "View project" : code ? "View code" : "";
   const tags = Array.isArray(project.tags) ? project.tags.map(tagName).filter(Boolean) : [];
 
   return (
     <article className='group border-t border-line pt-8'>
       <div className='overflow-hidden bg-[#ebe6de]'>
         {project.image ? (
-          href ? (
-            <a href={href} target='_blank' rel='noreferrer' className='block' aria-label={`${project.name} screenshot`}>
+          website ? (
+            <a href={website} target='_blank' rel='noreferrer' className='block' aria-label={`${project.name} screenshot`}>
               <img
                 src={project.image}
                 alt={`${project.name} screenshot`}
@@ -52,8 +49,10 @@ const ProjectCard = ({ project }) => {
           <h3 className='font-display text-2xl font-medium tracking-[-0.02em] text-ink sm:text-3xl'>
             {project.name}
           </h3>
-          {project.description && (
-            <p className='mt-3 text-[0.98rem] leading-7 text-mist'>{project.description}</p>
+          {(projectBriefs[project.name] || project.description) && (
+            <p className='mt-3 text-[0.98rem] leading-7 text-mist'>
+              {projectBriefs[project.name] || project.description}
+            </p>
           )}
           {tags.length > 0 && (
             <ul className='mt-4 flex flex-wrap gap-2'>
@@ -67,14 +66,9 @@ const ProjectCard = ({ project }) => {
         </div>
 
         <div className='flex shrink-0 flex-col items-start gap-2 sm:items-end'>
-          {href && (
-            <a href={href} target='_blank' rel='noreferrer' className='text-[0.95rem] text-ink underline decoration-line underline-offset-4 hover:decoration-ink'>
-              {action}
-            </a>
-          )}
-          {website && code && (
-            <a href={code} target='_blank' rel='noreferrer' className='text-[0.85rem] text-mist underline decoration-line underline-offset-4 hover:text-ink'>
-              View code
+          {website && (
+            <a href={website} target='_blank' rel='noreferrer' className='text-[0.95rem] text-ink underline decoration-line underline-offset-4 hover:decoration-ink'>
+              View project
             </a>
           )}
         </div>
@@ -86,7 +80,7 @@ const ProjectCard = ({ project }) => {
 const ManualProjectCard = ({ project }) => {
   const website = project.website?.trim() || "";
 
-  const image = (
+  const image = project.image ? (
     <img
       src={project.image}
       alt={website ? `${project.name} landing page` : project.name}
@@ -96,11 +90,15 @@ const ManualProjectCard = ({ project }) => {
           : "aspect-[16/10] w-full bg-black object-contain"
       }
     />
+  ) : (
+    <div className='flex aspect-[16/10] items-center justify-center bg-[#ebe6de] px-8'>
+      <p className='font-display text-5xl font-medium tracking-[-0.03em] text-ink'>{project.name}</p>
+    </div>
   );
 
   return (
     <article className='group border-t border-line pt-8'>
-      <div className={website ? "overflow-hidden bg-[#ebe6de]" : "overflow-hidden bg-black"}>
+      <div className={website || !project.image ? "overflow-hidden bg-[#ebe6de]" : "overflow-hidden bg-black"}>
         {website ? (
           <a href={website} target='_blank' rel='noreferrer' className='block' aria-label={`${project.name} website`}>
             {image}

@@ -11,7 +11,7 @@ const Hero = () => (
         Full-stack applications, AI-powered systems and business software — from customer-facing products to internal operational tools.
       </p>
       <div className='mt-8 flex flex-col gap-3 sm:flex-row'>
-        <a href='#work' className='btn btn-primary'>
+        <a href='#projects' className='btn btn-primary'>
           View my work
         </a>
         <a href='#contact' className='btn btn-secondary'>

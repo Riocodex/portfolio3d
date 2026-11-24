@@ -79,17 +79,10 @@ export const trackRecord = [
 export const herifind = {
   name: "Herifind",
   category: "AI · Business Prospecting",
-  summary: "Putting businesses in front of the customers most likely to need them.",
   description:
-    "An AI-powered prospecting system that helps businesses find and reach potential customers. It discovers relevant companies, analyses their online presence, prioritises opportunities and generates personalised outreach.",
-  note: "Currently used in commercial prospecting work with 8WTC.",
+    "AI customer acquisition in one place. It discovers potential clients, identifies decision-makers, enriches contact data, and automates personalized outreach.",
   image: "/projects/herifind.png",
   website: "https://www.herifind.com/",
-  points: [
-    "Business discovery and website analysis",
-    "Opportunity identification and lead prioritisation",
-    "AI-generated outreach, campaign workflows and SMS",
-  ],
 };
 
 export const antares = {
@@ -97,14 +90,30 @@ export const antares = {
   category: "AI · Application Operations",
   status: "Private product",
   statusDetail: "Active development",
-  summary: "An autonomous operations layer for modern applications.",
   description:
-    "An AI-powered autonomous operations system designed to manage, monitor and maintain applications. Antares continuously observes application health, identifies operational issues and helps keep software running with less manual intervention.",
+    "Monitors live applications, flags what's failing, and takes on the routine operational work. Built so software stays up with less hands-on intervention.",
   image: "/projects/antares.png",
-  points: [],
 };
 
-export const manualProjects = [herifind, antares];
+export const larder = {
+  name: "Larder",
+  category: "Hospitality · Inventory",
+  description:
+    "Intelligent inventory for restaurants, across every outlet. Stocktaking, AI invoice processing, recipe costing and wastage tracking, so kitchens waste less and counts stay accurate.",
+  image: "/projects/larder.png",
+  website: "https://larder-stocktake.vercel.app/",
+};
+
+export const projectBriefs = {
+  Wimik:
+    "Design clothes on screen and adjust the look as you go. Finished designs can be shared, discovered, bought, and reused by other people.",
+  Voya:
+    "A map you talk to in plain language. It reads the request, finds relevant nearby places, and puts them on the map.",
+  Rethestate:
+    "A marketplace for buying and selling houses. Each property is represented by its own NFT, so ownership sits with the listing.",
+};
+
+export const manualProjects = [larder, herifind, antares];
 
 export const processSteps = [
   {

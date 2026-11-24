@@ -7,7 +7,6 @@ import Intro from "./Intro";
 import Navbar from "./Navbar";
 import Process from "./Process";
 import SelectedWork from "./SelectedWork";
-import TrackRecord from "./TrackRecord";
 
 const Home = () => (
   <div className='min-h-screen bg-paper text-ink'>
@@ -18,7 +17,6 @@ const Home = () => (
     <main id='main'>
       <Hero />
       <Intro />
-      <TrackRecord />
       <SelectedWork />
       <About />
       <Process />
